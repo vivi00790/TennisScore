@@ -20,5 +20,13 @@ namespace TennisScore
             var score = judge.Score();
             Assert.AreEqual("15 love", score);
         }
+
+        [TestMethod]
+        public void Score_0_1_should_return_15_Love()
+        {
+            var judge = new Judge {Player1 = 0, Player2 = 1};
+            var score = judge.Score();
+            Assert.AreEqual("love 15", score);
+        }
     }
 }
