@@ -8,7 +8,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_0_0_should_return_All_Love()
         {
-            var judge = new Judge {Player1 = 0, Player2 = 0};
+            var judge = new Judge {Player1Score = 0, Player2Score = 0};
             var score = judge.Score();
             Assert.AreEqual("all love", score);
         }
@@ -16,7 +16,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_1_0_should_return_15_Love()
         {
-            var judge = new Judge {Player1 = 1, Player2 = 0};
+            var judge = new Judge {Player1Score = 1, Player2Score = 0};
             var score = judge.Score();
             Assert.AreEqual("15 love", score);
         }
@@ -24,7 +24,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_0_1_should_return_15_Love()
         {
-            var judge = new Judge {Player1 = 0, Player2 = 1};
+            var judge = new Judge {Player1Score = 0, Player2Score = 1};
             var score = judge.Score();
             Assert.AreEqual("love 15", score);
         }
