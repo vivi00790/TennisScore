@@ -11,6 +11,11 @@
 
         public string Score()
         {
+            if (Player1 == 1)
+            {
+                return "15 love";
+            }
+
             return "all love";
         }
     }
