@@ -17,15 +17,15 @@
             }
             
 
-            return GenerateResult();
+            return GenerateResultText();
         }
 
-        private string GenerateResult()
+        private string GenerateResultText()
         {
-            return GetScoreText(Player1Score) + " " + GetScoreText(Player2Score);
+            return GetPlayerScoreText(Player1Score) + " " + GetPlayerScoreText(Player2Score);
         }
 
-        private string GetScoreText(int score)
+        private string GetPlayerScoreText(int score)
         {
             switch (score)
             {
