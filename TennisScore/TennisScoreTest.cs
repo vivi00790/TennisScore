@@ -28,5 +28,21 @@ namespace TennisScore
             var score = judge.Score();
             Assert.AreEqual("love 15", score);
         }
+
+        [TestMethod]
+        public void Score_2_0_should_return_15_Love()
+        {
+            var judge = new Judge {Player1Score = 1, Player2Score = 0};
+            var score = judge.Score();
+            Assert.AreEqual("30 love", score);
+        }
+
+        [TestMethod]
+        public void Score_0_2_should_return_15_Love()
+        {
+            var judge = new Judge {Player1Score = 0, Player2Score = 1};
+            var score = judge.Score();
+            Assert.AreEqual("love 30", score);
+        }
     }
 }
