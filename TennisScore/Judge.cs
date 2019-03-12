@@ -33,6 +33,8 @@
                     return "love";
                 case 1:
                     return "15";
+                case 2:
+                    return "30";
 
             }
 
