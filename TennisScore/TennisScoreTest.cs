@@ -8,41 +8,40 @@ namespace TennisScore
         [TestMethod]
         public void Score_0_0_should_return_All_Love()
         {
-            var judge = new Judge {Player1Score = 0, Player2Score = 0};
-            var score = judge.Score();
-            Assert.AreEqual("all love", score);
+            Assert.AreEqual("all love", setUpScore(0, 0).Score());
         }
 
         [TestMethod]
         public void Score_1_0_should_return_15_Love()
         {
-            var judge = new Judge {Player1Score = 1, Player2Score = 0};
-            var score = judge.Score();
-            Assert.AreEqual("15 love", score);
+            Assert.AreEqual("15 love", setUpScore(1, 0).Score());
+
         }
 
         [TestMethod]
         public void Score_0_1_should_return_15_Love()
         {
-            var judge = new Judge {Player1Score = 0, Player2Score = 1};
-            var score = judge.Score();
-            Assert.AreEqual("love 15", score);
+            Assert.AreEqual("love 15", setUpScore(0, 1).Score());
+
         }
 
         [TestMethod]
         public void Score_2_0_should_return_15_Love()
         {
-            var judge = new Judge {Player1Score = 2, Player2Score = 0};
-            var score = judge.Score();
-            Assert.AreEqual("30 love", score);
+            Assert.AreEqual("30 love", setUpScore(2, 0).Score());
+
         }
 
         [TestMethod]
         public void Score_0_2_should_return_15_Love()
         {
-            var judge = new Judge {Player1Score = 0, Player2Score = 2};
-            var score = judge.Score();
-            Assert.AreEqual("love 30", score);
+            Assert.AreEqual("love 30", setUpScore(0, 2).Score());
+
+        }
+
+        private Judge setUpScore(int player1Score, int player2Score)
+        {
+            return new Judge { Player1Score = player1Score, Player2Score = player2Score };
         }
     }
 }
