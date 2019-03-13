@@ -19,21 +19,21 @@ namespace TennisScore
         }
 
         [TestMethod]
-        public void Score_0_1_should_return_15_Love()
+        public void Score_0_1_should_return_Love_15()
         {
             Assert.AreEqual("love 15", setUpScore(0, 1).Score());
 
         }
 
         [TestMethod]
-        public void Score_2_0_should_return_15_Love()
+        public void Score_2_0_should_return_30_Love()
         {
             Assert.AreEqual("30 love", setUpScore(2, 0).Score());
 
         }
 
         [TestMethod]
-        public void Score_0_2_should_return_15_Love()
+        public void Score_0_2_should_return_Love_30()
         {
             Assert.AreEqual("love 30", setUpScore(0, 2).Score());
 
