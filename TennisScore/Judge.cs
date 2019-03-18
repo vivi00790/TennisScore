@@ -26,11 +26,16 @@ namespace TennisScore
 
         private string GenerateResultText()
         {
-            if (Player1Score >= 2 && Player2Score >= 2)
+            if (Player1Score > 2 && Player2Score > 2)
             {
-                if (Player1Score == Player2Score && Player1Score > 2)
+                if (Player1Score == Player2Score)
                 {
                     return "deuce";
+                }
+
+                if (Math.Abs(Player1Score - Player2Score) == 1)
+                {
+                    return Higher + " deuce";
                 }
             }
 
