@@ -83,18 +83,20 @@ namespace TennisScore
         [TestMethod]
         public void Score_4_0_should_return_player1_name_win()
         {
-            _initializedJudge.Player1Score = 3;
+            _initializedJudge.Player1Name = "p1";
+            _initializedJudge.Player1Score = 4;
             _initializedJudge.Player2Score = 0;
-            Assert.AreEqual("45 love", _initializedJudge.Score());
+            Assert.AreEqual("p1 win", _initializedJudge.Score());
 
         }
 
         [TestMethod]
         public void Score_0_4_should_return_player2_name_win()
         {
+            _initializedJudge.Player2Name = "p2";
             _initializedJudge.Player1Score = 0;
-            _initializedJudge.Player2Score = 3;
-            Assert.AreEqual("love 45", _initializedJudge.Score());
+            _initializedJudge.Player2Score = 4;
+            Assert.AreEqual("p2 win", _initializedJudge.Score());
 
         }
     }
