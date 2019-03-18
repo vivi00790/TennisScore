@@ -21,16 +21,20 @@ namespace TennisScore
         [TestMethod]
         public void Score_0_0_should_return_All_Love()
         {
-            _initializedJudge.Player1Score = 0;
-            _initializedJudge.Player2Score = 0;
+            SetUpScore(0,0);
             Assert.AreEqual("all love", _initializedJudge.Score());
+        }
+
+        private static void SetUpScore(int player1Score, int player2Score)
+        {
+            _initializedJudge.Player1Score = player1Score;
+            _initializedJudge.Player2Score = player2Score;
         }
 
         [TestMethod]
         public void Score_1_0_should_return_15_Love()
         {
-            _initializedJudge.Player1Score = 1;
-            _initializedJudge.Player2Score = 0;
+            SetUpScore(1, 0);
             Assert.AreEqual("15 love", _initializedJudge.Score());
 
         }
@@ -38,8 +42,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_0_1_should_return_Love_15()
         {
-            _initializedJudge.Player1Score = 0;
-            _initializedJudge.Player2Score = 1;
+            SetUpScore(0, 1);
             Assert.AreEqual("love 15", _initializedJudge.Score());
 
         }
@@ -47,8 +50,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_2_0_should_return_30_Love()
         {
-            _initializedJudge.Player1Score = 2;
-            _initializedJudge.Player2Score = 0;
+            SetUpScore(2, 0);
             Assert.AreEqual("30 love", _initializedJudge.Score());
 
         }
@@ -56,8 +58,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_0_2_should_return_Love_30()
         {
-            _initializedJudge.Player1Score = 0;
-            _initializedJudge.Player2Score = 2;
+            SetUpScore(0, 2);
             Assert.AreEqual("love 30", _initializedJudge.Score());
 
         }
@@ -65,8 +66,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_3_0_should_return_45_Love()
         {
-            _initializedJudge.Player1Score = 3;
-            _initializedJudge.Player2Score = 0;
+            SetUpScore(3, 0);
             Assert.AreEqual("45 love", _initializedJudge.Score());
 
         }
@@ -74,8 +74,7 @@ namespace TennisScore
         [TestMethod]
         public void Score_0_3_should_return_Love_45()
         {
-            _initializedJudge.Player1Score = 0;
-            _initializedJudge.Player2Score = 3;
+            SetUpScore(0, 3);
             Assert.AreEqual("love 45", _initializedJudge.Score());
 
         }
@@ -84,8 +83,7 @@ namespace TennisScore
         public void Score_4_0_should_return_player1_name_win()
         {
             _initializedJudge.Player1Name = "p1";
-            _initializedJudge.Player1Score = 4;
-            _initializedJudge.Player2Score = 0;
+            SetUpScore(4, 0);
             Assert.AreEqual("p1 win", _initializedJudge.Score());
 
         }
@@ -94,8 +92,7 @@ namespace TennisScore
         public void Score_0_4_should_return_player2_name_win()
         {
             _initializedJudge.Player2Name = "p2";
-            _initializedJudge.Player1Score = 0;
-            _initializedJudge.Player2Score = 4;
+            SetUpScore(0, 4);
             Assert.AreEqual("p2 win", _initializedJudge.Score());
 
         }
@@ -103,10 +100,17 @@ namespace TennisScore
         [TestMethod]
         public void Score_4_4_should_return_deuce()
         {
-            _initializedJudge.Player1Score = 4;
-            _initializedJudge.Player2Score = 4;
+            SetUpScore(4, 4);
             Assert.AreEqual("deuce", _initializedJudge.Score());
-
         }
+
+        [TestMethod]
+        public void Score_3_3_should_return_deuce()
+        {
+            SetUpScore(3, 3);
+            Assert.AreEqual("deuce", _initializedJudge.Score());
+        }
+
+
     }
 }

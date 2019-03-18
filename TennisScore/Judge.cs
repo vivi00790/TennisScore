@@ -26,6 +26,11 @@ namespace TennisScore
 
         private string GenerateResultText()
         {
+            if (Player1Score == Player2Score && Player1Score > 2)
+            {
+                return "deuce";
+            }
+
             if (Player1Score == 4 || Player2Score == 4)
             {
                 return Winner + " win";
