@@ -149,6 +149,14 @@ namespace TennisScore
             Assert.AreEqual("p2 win", _initializedJudge.Score());
         }
 
+        [TestMethod]
+        public void Score_4_5_should_return_player2_deuce()
+        {
+            _initializedJudge.Player2Name = "p2";
+            SetUpScore(4, 5);
+            Assert.AreEqual("p2 deuce", _initializedJudge.Score());
+        }
+
 
     }
 }

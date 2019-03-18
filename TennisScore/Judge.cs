@@ -48,7 +48,7 @@ namespace TennisScore
                 }
             }
 
-            if (Player1Score == 4 || Player2Score == 4)
+            if (HigherScore >= 4)
             {
                 return HigherScorePlayerName + " " + _winText;
             }
