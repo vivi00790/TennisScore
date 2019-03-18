@@ -19,7 +19,6 @@ namespace TennisScore
             {
                 return "all love";
             }
-            
 
             return GenerateResultText();
         }
@@ -38,7 +37,7 @@ namespace TennisScore
                     return HigherScorePlayerName + " " + _deuceText;
                 }
 
-                if (Math.Abs(Player1Score - Player2Score) > 1 && HigherScore >=4)
+                if (Math.Abs(Player1Score - Player2Score) > 1 && HigherScore >= 4)
                 {
                     return HigherScorePlayerName + " " + _winText;
                 }
@@ -51,9 +50,25 @@ namespace TennisScore
             return GetPlayerScoreText(Player1Score) + " " + GetPlayerScoreText(Player2Score);
         }
 
-        public int HigherScore => Player1Score > Player2Score ? Player1Score : Player2Score;
+        public int HigherScore
+        {
+            get
+            {
+                if(Player1Score != Player2Score)
+                    return Player1Score > Player2Score ? Player1Score : Player2Score;
+                return -1;
+            }
+        }
 
-        public string HigherScorePlayerName => Player1Score > Player2Score ? Player1Name : Player2Name;
+        public string HigherScorePlayerName
+        {
+            get
+            {
+                if (Player1Score != Player2Score)
+                    return Player1Score > Player2Score ? Player1Name : Player2Name;
+                return string.Empty;
+            }
+        }
 
         private string GetPlayerScoreText(int score)
         {
@@ -69,6 +84,4 @@ namespace TennisScore
             {3, "40"},
         };
     }
-
-    
 }
