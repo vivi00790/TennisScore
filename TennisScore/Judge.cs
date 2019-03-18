@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TennisScore
 {
@@ -12,6 +13,9 @@ namespace TennisScore
         public int Player2Score { get; set; }
         public string Player1Name { get; set; }
         public string Player2Name { get; set; }
+
+        private string _winText = "win";
+        private string _deuceText = "deuce";
 
         public string Score()
         {
@@ -30,18 +34,18 @@ namespace TennisScore
             {
                 if (Player1Score == Player2Score)
                 {
-                    return "deuce";
+                    return _deuceText;
                 }
 
                 if (Math.Abs(Player1Score - Player2Score) == 1)
                 {
-                    return Higher + " deuce";
+                    return Higher + " " + _deuceText;
                 }
             }
 
             if (Player1Score == 4 || Player2Score == 4)
             {
-                return Higher + " win";
+                return Higher + " " + _winText;
             }
             return GetPlayerScoreText(Player1Score) + " " + GetPlayerScoreText(Player2Score);
         }
@@ -50,20 +54,17 @@ namespace TennisScore
 
         private string GetPlayerScoreText(int score)
         {
-            switch (score)
-            {
-                case 0:
-                    return "love";
-                case 1:
-                    return "15";
-                case 2:
-                    return "30";
-                case 3:
-                    return "40";
-
-            }
-
-            return string.Empty;
+            return _scoreText[score];
         }
+
+        private Dictionary<int, string> _scoreText = new Dictionary<int, string>()
+        {
+            {0, "love"},
+            {1, "15"},
+            {2, "30"},
+            {3, "40"},
+        };
     }
+
+    
 }
