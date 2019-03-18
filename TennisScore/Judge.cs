@@ -26,19 +26,22 @@ namespace TennisScore
 
         private string GenerateResultText()
         {
-            if (Player1Score == Player2Score && Player1Score > 2)
+            if (Player1Score >= 2 && Player2Score >= 2)
             {
-                return "deuce";
+                if (Player1Score == Player2Score && Player1Score > 2)
+                {
+                    return "deuce";
+                }
             }
 
             if (Player1Score == 4 || Player2Score == 4)
             {
-                return Winner + " win";
+                return Higher + " win";
             }
             return GetPlayerScoreText(Player1Score) + " " + GetPlayerScoreText(Player2Score);
         }
 
-        public string Winner => Player1Score > Player2Score ? Player1Name : Player2Name;
+        public string Higher => Player1Score > Player2Score ? Player1Name : Player2Name;
 
         private string GetPlayerScoreText(int score)
         {
@@ -51,7 +54,7 @@ namespace TennisScore
                 case 2:
                     return "30";
                 case 3:
-                    return "45";
+                    return "40";
 
             }
 

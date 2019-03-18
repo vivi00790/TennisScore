@@ -64,18 +64,18 @@ namespace TennisScore
         }
 
         [TestMethod]
-        public void Score_3_0_should_return_45_Love()
+        public void Score_3_0_should_return_40_Love()
         {
             SetUpScore(3, 0);
-            Assert.AreEqual("45 love", _initializedJudge.Score());
+            Assert.AreEqual("40 love", _initializedJudge.Score());
 
         }
 
         [TestMethod]
-        public void Score_0_3_should_return_Love_45()
+        public void Score_0_3_should_return_Love_40()
         {
             SetUpScore(0, 3);
-            Assert.AreEqual("love 45", _initializedJudge.Score());
+            Assert.AreEqual("love 40", _initializedJudge.Score());
 
         }
 
