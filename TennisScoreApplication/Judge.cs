@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TennisScore
+namespace TennisScoreApplication
 {
     public class Judge
     {
