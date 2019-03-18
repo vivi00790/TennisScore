@@ -1,4 +1,6 @@
-﻿namespace TennisScore
+﻿using System;
+
+namespace TennisScore
 {
     public class Judge
     {
@@ -24,8 +26,14 @@
 
         private string GenerateResultText()
         {
+            if (Player1Score == 4 || Player2Score == 4)
+            {
+                return Winner + " win";
+            }
             return GetPlayerScoreText(Player1Score) + " " + GetPlayerScoreText(Player2Score);
         }
+
+        public string Winner => Player1Score > Player2Score ? Player1Name : Player2Name;
 
         private string GetPlayerScoreText(int score)
         {
