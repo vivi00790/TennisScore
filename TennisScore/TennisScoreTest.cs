@@ -119,11 +119,34 @@ namespace TennisScore
         }
 
         [TestMethod]
+        public void Score_3_2_should_return_40_30()
+        {
+            SetUpScore(3, 2);
+            Assert.AreEqual("40 30", _initializedJudge.Score());
+        }
+
+        [TestMethod]
         public void Score_4_3_should_return_player1_deuce()
         {
             _initializedJudge.Player1Name = "p1";
             SetUpScore(4, 3);
             Assert.AreEqual("p1 deuce", _initializedJudge.Score());
+        }
+
+        [TestMethod]
+        public void Score_5_3_should_return_player1_win()
+        {
+            _initializedJudge.Player1Name = "p1";
+            SetUpScore(5, 3);
+            Assert.AreEqual("p1 win", _initializedJudge.Score());
+        }
+
+        [TestMethod]
+        public void Score_4_6_should_return_player2_win()
+        {
+            _initializedJudge.Player2Name = "p2";
+            SetUpScore(4, 6);
+            Assert.AreEqual("p2 win", _initializedJudge.Score());
         }
 
 

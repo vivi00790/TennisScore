@@ -39,21 +39,29 @@ namespace TennisScore
 
                 if (Math.Abs(Player1Score - Player2Score) == 1)
                 {
-                    return Higher + " " + _deuceText;
+                    return HigherScorePlayerName + " " + _deuceText;
+                }
+
+                if (Math.Abs(Player1Score - Player2Score) > 1 && HigherScore >=4)
+                {
+                    return HigherScorePlayerName + " " + _winText;
                 }
             }
 
             if (Player1Score == 4 || Player2Score == 4)
             {
-                return Higher + " " + _winText;
+                return HigherScorePlayerName + " " + _winText;
             }
             return GetPlayerScoreText(Player1Score) + " " + GetPlayerScoreText(Player2Score);
         }
 
-        public string Higher => Player1Score > Player2Score ? Player1Name : Player2Name;
+        public int HigherScore => Player1Score > Player2Score ? Player1Score : Player2Score;
+
+        public string HigherScorePlayerName => Player1Score > Player2Score ? Player1Name : Player2Name;
 
         private string GetPlayerScoreText(int score)
         {
+            if (score > 3) return score.ToString();
             return _scoreText[score];
         }
 
