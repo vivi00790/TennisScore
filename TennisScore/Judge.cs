@@ -65,7 +65,7 @@ namespace TennisScore
             return _scoreText[score];
         }
 
-        private Dictionary<int, string> _scoreText = new Dictionary<int, string>()
+        private readonly Dictionary<int, string> _scoreText = new Dictionary<int, string>()
         {
             {0, "love"},
             {1, "15"},
